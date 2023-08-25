@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* @font-face {
+    font-family: 'KanitR';
+    font-weight: 400;
+    src: url('assets/fonts/kanit-regular-webfont.woff2') format('woff2'),
+        url('assets/fonts/kanit-regular-webfont.woff') format('woff');
+} */
+
+ul {
+    list-style-type: none;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+body {
+    height: auto;
+    width: auto;
+}
+
+.container {
+    padding: 1% 1% 1% 1%;
+    margin-left: 1%;
+    margin-top: 1%;
+    width: fit-content;
+    background-color: gray;
+    border: 1px solid black;
+    font-family: 'KanitR', sans-serif;
+    font-weight: 400;
+}
+
+#class_name {
+    border: none;
+    border-radius: .3em;
+}
+
+.orientation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    height: fit-content;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+}
+
+.interval {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+    width: fit-content;
+}
+
+.sub {
+    font-family: 'Kanit', sans-serif;
+}

@@ -1,0 +1,51 @@
+<div class='container' id="{{section_name}}">
+    <form action="/submit" method="post">
+        <!-- class name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <!-- days of the week -->
+        <div class='orientation'>
+            <div class='boxes'>
+                <label for='checkbox'>M</label>
+                <input type="checkbox" id="M", name="M">
+            </div>
+            <div class='boxes'>
+                <label for='checkbox'>Tu</label>
+                <input type="checkbox" id="Tu", name="Tu">
+            </div>
+            <div class='boxes'>
+                <label for='checkbox'>W</label>
+                <input type="checkbox" id="W", name="W">
+            </div>
+            <div class='boxes'>
+                <label for='checkbox'>Thu</label>
+                <input type="checkbox" id="Thu", name="Thu">
+            </div>
+            <div class='boxes'>
+                <label for='checkbox'>F</label>
+                <input type="checkbox" id="F", name="F">
+            </div>
+            <div class='boxes'>
+                <label for='checkbox'>Sa</label>
+                <input type="checkbox" id="Sa", name="Sa">
+            </div>
+            <div class='boxes'>
+                <label for='checkbox'>Su</label>
+                <input type="checkbox" id="Su", name="Su">
+            </div>
+        </div>
+
+
+        <!-- time interval -->
+        <label for="start_time">Start / End</label>
+
+        <input type="time" id="start_time" name="start_time" required>
+        <input type="time" id="end_time" name="end_time" required><br>
+
+
+        <!-- submit -->
+        <input class='sub' type="submit" name="update" value="Save">
+        <input class='sub' type="submit" name="delete" value="Delete">
+    </form>
+</div>
