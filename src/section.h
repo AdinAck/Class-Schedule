@@ -33,6 +33,10 @@ struct Time {
 
 class Section {
 public:
+    std::string get_id() const {
+        return id;
+    }
+
     std::string get_name() const {
         return name;
     }
@@ -67,6 +71,10 @@ public:
         };
 
         return Time();
+    }
+
+    void set_id(std::string anID) {
+        id = anID;
     }
 
     void set_name(std::string aName) {
@@ -160,6 +168,7 @@ public:
     }
 
     void serialize(JsonObject& anObj) const {
+        anObj["id"] = get_id();
         anObj["name"] = get_name();
 
         for (std::string day: days) {
@@ -171,6 +180,7 @@ public:
     }
 
 protected:
+    std::string id;
     std::string name;
     bool m = false, tu = false, w = false, thu = false, f = false, sa = false, su = false;
     Time start_time, end_time;

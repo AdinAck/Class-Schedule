@@ -22,12 +22,16 @@ async function fetch_schedule() {
         fetch('/static/class_template.html')
             .then(response => response.text())
             .then(template => {
-                const class_id = element['name'].replaceAll(' ', '-');
-                const rendered = template.replace('{{section_name}}', class_id);
+                const class_id = element['id'].replaceAll(' ', '-');
+                const class_name = element['name'].replaceAll(' ', '-');
+                const rendered = template.replace('{{section_id}}', class_id);
 
                 const new_item = document.createElement("li");
                 new_item.innerHTML = rendered;
                 list.appendChild(new_item);
+
+                // id
+                document.querySelector('#' + class_id + ' #id').value = element['id'];
 
                 // name
                 document.querySelector('#' + class_id + ' #name').value = element['name'];

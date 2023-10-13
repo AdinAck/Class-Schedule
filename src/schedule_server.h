@@ -35,10 +35,19 @@ void handle_form_submit(AsyncWebServerRequest* request) {
 
     // -- this whole thing should be abstracted --
 
+    if (!request->hasParam("id", true)) {
+        // somehow report error
+        Serial.println("id error");
+        request->redirect("/"); // god i miss "defer"
+        return;
+    }
+
+    theSection.set_id(request->getParam("id", true)->value().c_str());
+
     if (!request->hasParam("name", true)) {
         // somehow report error
         Serial.println("name error");
-        request->redirect("/"); // god i miss "defer"
+        request->redirect("/");
         return;
     }
 
@@ -74,7 +83,7 @@ void handle_form_submit(AsyncWebServerRequest* request) {
     // manually search -_-
     bool exists { false };
     for (auto it{section_list.begin()}; it != section_list.end(); it++) {
-        if (it->get_name() == theSection.get_name()) {
+        if (it->get_id() == theSection.get_id()) {
             exists = true;
             if (del) {
                 section_list.erase(it);
@@ -94,7 +103,7 @@ void handle_form_submit(AsyncWebServerRequest* request) {
 }
 
 void handle_schedule(AsyncWebServerRequest* request) {
-    StaticJsonDocument<500> theDoc;
+    StaticJsonDocument<5000> theDoc;
 
     JsonArray theSchedule = theDoc.createNestedArray("schedule");
 
